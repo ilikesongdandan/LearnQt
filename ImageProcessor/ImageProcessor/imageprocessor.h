@@ -2,7 +2,7 @@
 #define IMAGEPROCESSOR_H
 
 #include <QtWidgets/QMainWindow>
-//#include "ui_imageprocessor.h"
+#include "ui_imageprocessor.h"
 #include "headers.h"
 #include "showwidget.h"
 
@@ -21,7 +21,9 @@ public:
 	void mergeFormat(QTextCharFormat);
 
 private:
-	//Ui::ImageProcessorClass ui;
+	Ui::ImageProcessorClass ui;
+	QGridLayout *mainlayout;
+
 	QMenu *fileMenu;
 	QMenu *zoomMenu;
 	QMenu *rotateMenu;
@@ -60,6 +62,50 @@ private:
 	QToolBar *mirrowTool;
 
 	QToolBar *doToolBar;
+	QToolBar *fontToolbar;
+
+	QLabel *fontlabel1;
+	QFontComboBox *fontComboBox;
+	QLabel *fontlabel2;
+	QComboBox *SizeComboBox;
+	QToolButton *boldBtn;
+	QToolButton *italiBtn;
+	QToolButton *underlineBtn;
+	QToolButton *colorBtn;
+
+	QLabel *listLabel;
+	QComboBox *listcombobox;
+	QActionGroup *actGrp;
+	QAction *leftAction;
+	QAction *rightAction;
+	QAction *centerAction;
+	QAction *justifyAction;
+	QToolBar *listToolBar;
+
+protected slots:
+	void showfile();
+	void showOpenfile();
+	void showPrintfile();
+	void showPrintimg();
+	void showZoomIn();
+	void showZoomOut();
+	void showRotate90();
+	void showRotate180();
+	void showRotate270();
+	void showMirrowVertical();
+	void showMirrowHorizontal();
+	void showFontcombobox(QString comboStr);
+	void showSizecombobox(QString spinvalue);
+	void showBoldBtn();
+	void showItaicBtn();
+	void showUnderlineBtn();
+	void showColorBtn();
+	void showCurrenFormatchanged(const QTextCharFormat &fmt);
+
+	void showList(int);
+	void showAlignment(QAction *act);
+	void showCursorPositionchanged();
+
 };
 
 #endif // IMAGEPROCESSOR_H

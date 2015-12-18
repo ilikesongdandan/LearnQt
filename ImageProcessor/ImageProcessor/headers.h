@@ -51,5 +51,12 @@
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QFontComboBox>
 #include <QtGui/QTextCharFormat>
+#include <QtCore>
+#include <QTextStream>
+#include <QFile>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrinter>
+#include <QtGui/QMatrix>
+#include <QtGui/QTextList>
 
 #endif
