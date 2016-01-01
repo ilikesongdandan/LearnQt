@@ -1,0 +1,25 @@
+<UI version="4.0" >
+ <class>ThreadDlgClass</class>
+ <widget class="QDialog" name="ThreadDlgClass" >
+  <property name="objectName" >
+   <string notr="true">ThreadDlgClass</string>
+  </property>
+  <property name="geometry" >
+   <rect>
+	<x>0</x>
+	<y>0</y>
+	<width>600</width>
+	<height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>ThreadDlg</string>
+  </property>
+ </widget>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources>
+   <include location="threaddlg.qrc"/>
+ </resources>
+ <connections/>
+</UI>
