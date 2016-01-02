@@ -3,7 +3,7 @@
 WorkThread::WorkThread(QObject *parent)
 	: QThread(parent)
 {
-	run();
+	//run();
 }
 
 WorkThread::~WorkThread()
