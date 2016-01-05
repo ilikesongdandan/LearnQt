@@ -1,11 +1,13 @@
 #include "mainwindow.h"
+#include "dialog.h"
 #if _MSC_VER >= 1600  
 
 #pragma execution_character_set("utf-8")  
 
 #endif  
 
-
+extern int uniqueCarId;
+extern int uniqueFactoryId;
 MainWindow::MainWindow(const QString &factoryTable, const QString &carTable, QFile *carDetails, QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -26,8 +28,8 @@ MainWindow::MainWindow(const QString &factoryTable, const QString &carTable, QFi
 	QGroupBox *factory = createFactoryGroupBox();
 	QGroupBox *cars = createCarGroupBox();
 	QGroupBox *details = createDetailsGroupBox();
-	//uniqueCarId = carModel->rowCount();
-	//uniqueFactoryId = factoryModel->rowCount();
+	uniqueCarId = carModel->rowCount();
+	uniqueFactoryId = factoryModel->rowCount();
 
 	//²¼¾Ö
 	QGridLayout *layout = new QGridLayout;
@@ -204,7 +206,15 @@ void MainWindow::getAttribList(QDomNode car)
 }
 
 void MainWindow::addCar(){
-
+	Dialog *dialog=new Dialog(carModel,factoryModel,carData,file,this);
+	int accepted = dialog->exec();
+	if (accepted==1)
+	{
+		int lastRow = carModel->rowCount() - 1;
+		carView->selectRow(lastRow);
+		carView->scrollToBottom();
+		showCarDetails(carModel->index(lastRow, 0));
+	}
 }
 
 void MainWindow::delCar()
