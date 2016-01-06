@@ -8,6 +8,7 @@
 
 extern int uniqueCarId;
 extern int uniqueFactoryId;
+
 MainWindow::MainWindow(const QString &factoryTable, const QString &carTable, QFile *carDetails, QWidget *parent)
 	: QMainWindow(parent)
 {
